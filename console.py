@@ -141,8 +141,7 @@ class HBNBCommand(cmd.Cmd):
                         continue
             kwargs[key] = value
         new_instance = HBNBCommand.classes[class_name](**kwargs)
-        models.storage.new(new_instance)
-        models.storage.save()
+        new_instance.save()
         print(new_instance.id)
 
     def help_create(self):
