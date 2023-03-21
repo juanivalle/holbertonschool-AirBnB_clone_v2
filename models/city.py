@@ -3,7 +3,10 @@
 from models.base_model import BaseModel
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
+from sqlalchemy import create_engine
 
+engine = create_engine('mysql+mysqlalchemy://hbnb_dev:hbnb_dev_pwd@localhost \
+                       :3306/hbnb_dev_db',pool_pre_ping=True)
 Base = declarative_base()
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
