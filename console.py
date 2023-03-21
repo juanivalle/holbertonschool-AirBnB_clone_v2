@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Console Module """
-import datetime
 import cmd
 import sys
 from models.base_model import BaseModel
@@ -125,7 +124,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         
-        kwargs = {'updated_at': datetime.datetime.now()}
+        kwargs = {}
         for arg in token[1:]:
             key, value = arg.split("=")
             if value[0] == '"' and value[-1] == '"':
