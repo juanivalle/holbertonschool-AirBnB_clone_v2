@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         
-        kwargs = {'updated_at': datetime.now()}
+        kwargs = {'updated_at': datetime.datetime.now()}
         for arg in token[1:]:
             key, value = arg.split("=")
             if value[0] == '"' and value[-1] == '"':
