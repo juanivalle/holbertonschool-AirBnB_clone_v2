@@ -14,7 +14,6 @@ class State(BaseModel, Base):
                           cascade="all, delete-orphan")
 
 def __init__(self, *args, **kwargs):
-    """comments"""
     super().__init__(*args, **kwargs)
 
 def cities(self):
@@ -22,5 +21,5 @@ def cities(self):
     state_city = []
     for val in storage.all("City").values():
         if self.id == City.state_id:
-            state_city.append(storage.all(City)[val])
+            state_city.append(val)
     return state_city
