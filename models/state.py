@@ -14,12 +14,13 @@ class State(BaseModel, Base):
                           cascade="all, delete-orphan")
 
 def __init__(self, *args, **kwargs):
+    """comments"""
     super().__init__(*args, **kwargs)
 
 def cities(self):
     from models import storage
     st_cities = []
-    for city in storage.all("City").values():
+    for city in storage.all(City).values():
         if city.state_id == self.id:
             st_cities.append(city)
     return st_cities
