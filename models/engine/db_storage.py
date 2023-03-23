@@ -58,6 +58,9 @@ class DBStorage:
         ssession = scoped_session(ssession)
         self.__session = ssession
 
+    def close(self):
+        """comments"""
+        self.__session.close()
 
 
                                               
