@@ -17,6 +17,7 @@ def __init__(self, *args, **kwargs):
     """comments"""
     super().__init__(*args, **kwargs)
 
+@property
 def cities(self):
     from models import storage
     st_cities = []
