@@ -14,7 +14,7 @@ class State(BaseModel, Base):
                           cascade="all, delete-orphan")
 
 def __init__(self, *args, **kwargs):
-    super(self).__init__(*args, **kwargs)
+    super().__init__(*args, **kwargs)
 
 def cities(self):
     from models import storage
