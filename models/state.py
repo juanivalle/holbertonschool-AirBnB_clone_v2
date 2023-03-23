@@ -14,12 +14,12 @@ class State(BaseModel, Base):
                           cascade="all, delete-orphan")
 
 def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
+    super(self).__init__(*args, **kwargs)
 
 def cities(self):
     from models import storage
     st_cities = []
-    for val in storage.all("City").values():
-        if val.state_id == self.id:
-            st_cities.append(val)
+    for city in storage.all("City").values():
+        if city.state_id == self.id:
+            st_cities.append(city)
     return st_cities
