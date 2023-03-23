@@ -18,8 +18,8 @@ def __init__(self, *args, **kwargs):
 
 def cities(self):
     from models import storage
-    state_city = []
+    st_cities = []
     for val in storage.all("City").values():
-        if self.id == City.state_id:
-            state_city.append(val)
-    return state_city
+        if val.state_id == self.id:
+            st_cities.append(val)
+    return st_cities
