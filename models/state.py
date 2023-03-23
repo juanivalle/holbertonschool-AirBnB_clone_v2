@@ -15,7 +15,7 @@ class State(BaseModel, Base):
 
 def __init__(self, *args, **kwargs):
     """comments"""
-    pass
+    super().__init__(*args, **kwargs)
 
 def cities(self):
     state_city = []
