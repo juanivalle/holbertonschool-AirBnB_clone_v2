@@ -141,6 +141,8 @@ class HBNBCommand(cmd.Cmd):
                         continue
             kwargs[key] = value
         new_instance = HBNBCommand.classes[class_name](**kwargs)
+        new_instance.__dict__.update(kwargs)
+        storage.new(new_instance)
         new_instance.save()
         print(new_instance.id)
 
