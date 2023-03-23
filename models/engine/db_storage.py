@@ -13,6 +13,9 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy import create_engine
 from os import getenv
 
+mod = {"City": City, "State": State, "User": User,
+       "Amenity": Amenity, "Place": Place, "Review": Review}
+
 class DBStorage:
     __engine = None
     __session = None
@@ -28,7 +31,13 @@ class DBStorage:
             Base.metadata.drop_all(bind=self.__engine)
 
     def all(self, cls=None):
-        
+        objects = {}
+        for clas in mod:
+            if mod[clas] == cls or cls == None:
+                objects += self.session.query().all()
+                for key in objects:
+                    key = "{}.{}".format(__name__+'.'+key.id)
+        return objects
 
     def new(self, obj):
         """comments"""

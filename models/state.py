@@ -18,7 +18,7 @@ def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
 
 def cities(self):
-    state_city = []
+    state_city = {}
     from models import storage
     for val in storage.all(City).values():
         if self.id == City.state_id:
