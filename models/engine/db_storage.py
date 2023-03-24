@@ -34,9 +34,8 @@ class DBStorage:
         objects = {}
         for clas in mod:
             if mod[clas] == cls or cls == None:
-                objects += self.session.query().all()
-                for key in objects:
-                    key = "{}.{}".format(__name__+'.'+key.id)
+                for key in self.__session.query(mod[clas]).all()
+                    objects[type(key).__name__+'.'+key.id] = key
         return objects
 
     def new(self, obj):
