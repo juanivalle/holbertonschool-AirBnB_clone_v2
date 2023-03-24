@@ -13,10 +13,6 @@ class State(BaseModel, Base):
     cities = relationship("City", backref="state", 
                           cascade="all, delete-orphan")
 
-def __init__(self, *args, **kwargs):
-    """comments"""
-    super().__init__(*args, **kwargs)
-
 @property
 def cities(self):
     from models import storage
