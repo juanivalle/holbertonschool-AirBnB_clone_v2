@@ -29,7 +29,7 @@ def python(text):
 
 @app.route('/number/<n>', strict_slashes=False)
 def number(n):
-  if type(n) is int:
+    n = int(n)
     return "{} is a number".format(n)
 
 if __name__ == "__main__":
