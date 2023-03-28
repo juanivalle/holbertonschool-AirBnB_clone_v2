@@ -72,4 +72,4 @@ class FileStorage:
         return(city_instance)
 
     def close(self):
-        FileStorage.reload()
+        self.reload()
