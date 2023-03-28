@@ -41,15 +41,15 @@ class DBStorage:
     def new(self, obj):
         """comments"""
         self.__session.add(obj)
-    
+
     def save(self):
         """comments"""
         self.__session.commit()
-    
+
     def delete(self, obj=None):
         """comments"""
         self.__session.delete(obj)
-    
+   
     def reload(self):
         """comments"""
         Base.metadata.create_all(self.__engine)
@@ -60,6 +60,3 @@ class DBStorage:
     def close(self):
         """comments"""
         self.__session.close()
-
-
-                                              
