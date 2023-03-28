@@ -23,6 +23,7 @@ def c(text):
 
 @app.route('/python/<text>', strict_slashes=False)
 def python(text):
+    """Python"""
     text = "is cool"
     return f"Python {text}"
 
