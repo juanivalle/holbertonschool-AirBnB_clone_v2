@@ -22,6 +22,7 @@ def states_list():
 
 @app.teardown_appcontext
 def close_state():
+    """Close database connection"""
     from models import storage
     storage.close()
 
