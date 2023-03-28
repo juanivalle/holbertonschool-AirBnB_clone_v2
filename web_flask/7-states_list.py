@@ -13,13 +13,10 @@ def states_list():
     from models import storage
     from models.state import State
     
-    states = storage.all(State)
+    states = storage.all(State).values()
+    sorted_states = sorted(states, key=lambda state: state.name)
     
-    list = []
-    for val in states.values():
-        list.append(val)
-    
-    return render_template('7-states_list.html', states_list=list)
+    return render_template('7-states_list.html', states=sorted_states)
 
 @app.teardown_appcontext
 def close_state():
