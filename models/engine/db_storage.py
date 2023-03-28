@@ -60,4 +60,4 @@ class DBStorage:
 
     def close(self):
         """comments"""
-        self.__session.close()
+        self.__session.remove()
