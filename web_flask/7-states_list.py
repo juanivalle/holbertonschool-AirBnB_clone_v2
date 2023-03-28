@@ -1,8 +1,11 @@
 #!/usr/bin/python3
+"""state list"""
 
 from flask import Flask, render_template
 
+
 app = Flask(__name__)
+
 
 @app.route('/states_list', strict_slash=False)
 def states_list():
