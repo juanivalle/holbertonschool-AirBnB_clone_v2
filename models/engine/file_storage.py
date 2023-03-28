@@ -55,7 +55,7 @@ class FileStorage:
                         self.all()[key] = classes[val['__class__']](**val)
         except FileNotFoundError:
             pass
-    
+
     def delete(self, obj=None):
         """Deletes obj from __objects"""
         if obj is None:
@@ -63,13 +63,13 @@ class FileStorage:
         key = "{}.{}".format(type(obj).__name__, obj.id)
         if key in self.__objects:
             del self.__objects[key]
-    
+
     def cities(self, state_id):
         city_instance = []
         for city in FileStorage.all("City").values():
             if city.state_id == self.id:
                 city_instance.append(city, city.state_id)
         return(city_instance)
-    
+ 
     def close(self):
         FileStorage.reload()
