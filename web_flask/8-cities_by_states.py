@@ -22,7 +22,7 @@ def cities_by_states():
     return render_template('8-cities_by_states.html', dict=dict)
 
 @app.teardown_appcontext
-def close():
+def close(exception):
     """Close database connection"""
     
     from models import storage

@@ -19,7 +19,7 @@ def states_list():
     return render_template('7-states_list.html', states=sorted_states)
 
 @app.teardown_appcontext
-def close_state():
+def close_state(exception):
     """Close database connection"""
     
     from models import storage
