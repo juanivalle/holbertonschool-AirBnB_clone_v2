@@ -70,3 +70,6 @@ class FileStorage:
             if city.state_id == self.id:
                 city_instance.append(city, city.state_id)
         return(city_instance)
+    
+    def close(self):
+        FileStorage.reload()
