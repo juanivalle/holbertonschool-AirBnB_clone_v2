@@ -10,10 +10,12 @@ app = Flask(__name__)
 @app.route('/states_list', strict_slash=False)
 def states_list():
     """List all states"""
+    
     from models import storage
     from models.state import State
     
     states = storage.all(State)
+    
     list = []
     for val in states.values():
         list.append(val)
@@ -23,7 +25,9 @@ def states_list():
 @app.teardown_appcontext
 def close_state():
     """Close database connection"""
+    
     from models import storage
+    
     storage.close()
 
 if __name__ == '__main__':
