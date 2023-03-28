@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-"""state list"""
 
 from flask import Flask, render_template
 
