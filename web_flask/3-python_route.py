@@ -26,7 +26,7 @@ def python(text):
     """Python"""
     text = text.replace("_", " ")
     if text is None:
-        text = "is cool"
+        return "Python is cool"
     return "Python {}".format(text)
 
 if __name__ == "__main__":
