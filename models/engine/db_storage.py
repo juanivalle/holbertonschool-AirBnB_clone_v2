@@ -16,6 +16,7 @@ from os import getenv
 mod = {"City": City, "State": State, "User": User,
        "Amenity": Amenity, "Place": Place, "Review": Review}
 
+
 class DBStorage:
     __engine = None
     __session = None
@@ -25,7 +26,7 @@ class DBStorage:
                                       .format(getenv('HBNB_MYSQL_USER'),
                                               getenv('HBNB_MYSQL_PWD'),
                                               getenv('HBNB_MYSQL_HOST'),
-                                              getenv('HBNB_MYSQL_DB')), 
+                                              getenv('HBNB_MYSQL_DB')),
                                               pool_pre_ping=True)
         if getenv('HBNB_ENV') == "test":
             Base.metadata.drop_all(bind=self.__engine)
@@ -33,7 +34,7 @@ class DBStorage:
     def all(self, cls=None):
         objects = {}
         for clas in mod:
-            if mod[clas] == cls or cls == None:
+            if mod[clas] == cls or cls is None:
                 for key in self.__session.query(mod[clas]).all():
                     key = "{}.{}".format(__name__+'.'+key.id)
         return objects
@@ -49,7 +50,7 @@ class DBStorage:
     def delete(self, obj=None):
         """comments"""
         self.__session.delete(obj)
-   
+
     def reload(self):
         """comments"""
         Base.metadata.create_all(self.__engine)
